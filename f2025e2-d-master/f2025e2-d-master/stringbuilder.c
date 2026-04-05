@@ -3,10 +3,10 @@
 struct StringBuilder* sb_new(const char* string) {
     struct StringBuilder* sb = malloc(sizeof(struct StringBuilder));
     if (!sb) return NULL;
-    if (!string) string = "";
+    if (!string) return NULL;
     sb->size = strlen(string);
     sb->capacity = sb->size;
-    char* cpy = malloc(sb->size);
+    char* cpy = malloc(sb->size + 1);
     strcpy(cpy, string);
     sb->content = cpy;
     return sb;
